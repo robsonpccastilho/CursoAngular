@@ -1,0 +1,840 @@
+
+Curso de Angular - 10/09/2022
+Adriano 
+npm install -g - instala para qualquer diretorio
+npm start - executa o site
+npm run build --prod - prepara para configurações de produção
+Implantar na internet - após a compilação basta copiar apenas os arquivos da pasta dist/app-teste
+Angular Materials
+TypeScript é uma linguagem tipada
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+06/02/2023
+Curso pela Degree 
+https://angular.io
+https://itau.udemy.com/course/formacao-angular-inicio-criando-7-projetos/learn/lecture/7069190#overview
+
+---------------------------------------------------------------------------------------------------------------------------------------
+07/02/2023
+instalado o angular CLI -13
+
+---------------------------------------------------------------------------------------------------------------------------------------
+08/02/2023
+
+- no terminal do Windows.
+
+npm intall -g @angular/cli   --> tag -g significa que é global que deve funcionar em todo nosso computador
+
+ng version
+
+
+-> Crianto um no projeto
+- No terminal-
+	C:\robson\cursos\angular\projetos>
+		ng new ola-mundo
+		cd ola-mundo
+		ng serve
+....
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+
+
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+---------------------------------------------------------------------------------------------------------------------------------------
+09/02/2023
+
+versão anteriores a 13 do Angular.angular-cli.json
+versão 13 do Angular é o angular.json
+- Terminal
+ng serve
+
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+Angular é baseado em módulos
+Modulos - Pequenas unidades de códigos com um fim específico que é chamado de modulo.
+
+TypeScript - Linguagem tipada e orientada a objetos - è compilado - typescriptlanguage.org
+Webpack - webpack.github.com - Transforma todos os códigos do Angular em um código que o navegador entenda.
+Sequencia de Leitura do Angular
+1 - URL do Navegador
+2 - Index.html
+3 - app.module.ts
+4 - app.component.ts
+
+Comandos:
+ng server - para subir a aplicação
+ng test - para executar testes
+ng e2e - para executar teste de integração --> não funciou no Angular 13
+ng lint - verificar se o código está integrado e padronizado.
+ng build --prod - gera distribuição para produção.
+versão 13 do Angular é o ng build ola-mundo
+
+
+- no terminal
+ctrl+c sai do ng serve
+---------------------------------------------------------------------------------------------------------------------------------------
+23/02/2023
+no arquivo package.json tem todas as dependencias do projeto que precisam serem instaladas.
+Para instalar as dependencias:
+no terminal.
+npm install
+Após a instalação executar a aplicação deve executar o comando:
+ng serve
+crtl+c termina a execução
+--- Criar o projeto Calculadora
+
+ng new calculadora
+cd calculadora
+ng serve
+
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+---------------------------------------------------------------------------------------------------------------------------------------
+24/02/2023
+Criando o módulo Calculadora
+ng g module calculadora
+
+dentro do aap.module.ts - Para encurtar o nome dos importes 
+- criar arquivo index.ts no diretório calculadora
+export * from './calculadora.module'; 
+
+criando um componente calculadora - Deve fazer uma coisa específica 
+ng g component calculadora/calculadora
+---------------------------------------------------------------------------------------------------------------------------------------
+06/03/2023
+
+Criar a classe de negócio em services
+
+ng g service calculadora/services/calculadora
+
+import { Injectable } from '@angular/core'; --> Injectable prove essa classe para outras
+
+calculadora.module.ts
+  providers:[CalculadoraService] - Tem que ter o providers para o calculcadora service estar disponível para os outros modulos.
+
+em services/index.ts tiver que tirar as linhas abaixo para compilar.
+//--export * from './components';
+//--export * from './services';
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+07/03/2023
+
+npm install --save bootstrap@3
+Conforme mencionado anteriormente, caso você esteja usando o Angular 13, a importação do arquivo CSS do Bootstrap 
+deverá ser adicionado com a seguinte estrutura ao arquivo "angular.json":
+
+...
+"styles": [
+    "src/styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+ ],
+...
+
+aula 36
+para testar ng test
+---------------------------------------------------------------------------------------------------------------------------------------
+14/03/2023
+
+lição 36 - Testes e Debug
+lição 37 - Implentando os calculos
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+15/03/2023
+
+lição 40 - teste da tela simulando os botões
+
+lição 41 - Novo projeto gerenciador de tarefas - CRUD
+Executando o projeto final -
+entrar na pasta final\gerenciador-de-tarefas
+npm install
+ng serve
+---------------------------------------------------------------------------------------------------------------------------------------
+16/03/2023
+lição 42 - 
+Projeto Gerenciador de Tarefas
+
+		ng new gerenciador-de-tarefas
+		cd gerenciador-de-tarefas
+		ng serve
+
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+
+npm install --save bootstrap@3
+Conforme mencionado anteriormente, caso você esteja usando o Angular 13, a importação do arquivo CSS do Bootstrap 
+deverá ser adicionado com a seguinte estrutura ao arquivo "angular.json":
+
+...
+"styles": [
+    "src/styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+ ],
+...
+
+lição 46 - Rotas de Navegação
+---------------------------------------------------------------------------------------------------------------------------------------
+21/03/2023
+-->Criando o módulo de Tarefas
+	ng g module tarefas
+	dentro do diretório tarefas deve criar o arquivo Index.ts para facilitar os importes no app.module.ts da raiz do projeto.
+
+-->Criando o model de Tarefas
+	Estrutura da tarefa - Class Tarefa
+	
+-->Criando o serviço de gerenciamento de Tarefas
+	Como é comum será criado dentro da shared
+	ng g service tarefas/shared/tarefa
+	Em tarefas.module.ts deve criar o import do shared
+	e também como é um serviço tem que importar como 'providers'.
+	
+---------------------------------------------------------------------------------------------------------------------------------------
+22/03/2023
+
+Continuando a Lição 50
+const - A variavel não pode ser alterada
+let  e  var - pode receber valor
+---------------------------------------------------------------------------------------------------------------------------------------
+24/03/2023
+Continuando a Lição 51
+ng g component tarefas/listar-tarefa
+Continuando a Lição 52
+---------------------------------------------------------------------------------------------------------------------------------------
+31/03/2023
+Continuando a Lição 53
+
+Alguns navegadores poderão não renderizar a tabela como demonstrado no vídeo a seguir ao listar as tarefas, caso isso ocorra, adicione o elemento <tbody> a ela conforme o código a seguir:
+
+<table class="table table-striped table-bordered table-hover">
+  <tbody>
+  ...
+  </tbody>
+</table>
+
+---------------------------------------------------------------------------------------------------------------------------------------
+05/04/2023
+
+Continuando a Lição 56
+componente pode gerar tag html
+diretiva gera um atributo para um componente
+<tr *ngFor="let tarefa of tarefas"> -> ngFor está dentro do pacote forms models que importamos.
+
+
+<td [class.sucess]="!tarefa.concluida">
+
+class.sucess - Atribui valor ao componente em questão, para deixar o fundo verde
+
+listar-tarefa.component.ts 
+
+export class ListarTarefaComponent implements OnInit{
+
+  tarefas: Tarefa[];
+  constructor(private tarefaService: TarefaService){}
+  ngOnInit(){
+    this.tarefas = this.listarTodos();
+    //Para testes inicio
+    this.tarefas = [
+      new Tarefa(1,'Tarefa 1', false),
+      new Tarefa(2,'Tarefa 2', true),
+    ];
+   //Para testes fim
+---------------------------------------------------------------------------------------------------------------------------------------
+12/04/2023
+Continuando a Lição 57
+
+Criando componente de cadastro de tarefas
+ng g component tarefas/cadastrar-tarefa
+
+
+Continuando a Lição 60
+	Portanto se você estiver acompanhando o curso com o Angular mais recente, no vídeo a seguir quando implementar a seguinte linha de código:
+	@ViewChild('formTarefa') formTarefa: NgForm;
+	Tenha certeza de incluir o novo atributo, ficando da seguinte forma:
+	@ViewChild('formTarefa', { static: true }) formTarefa: NgForm;
+
+
+Continuando a Lição 63
+
+Criando componente de cadastro de tarefas
+ng g component tarefas/editar-tarefa
+
+Continuando a Lição 66
+
+No vídeo a seguir utilizaremos novamente o elemento ViewChild, portanto se você estiver seguindo o curso com o Angular atual, tenha certeza de adicionar o segundo atributo a ele, ficando de:
+@ViewChild('formTarefa') formTarefa: NgForm;
+Para:
+@ViewChild('formTarefa', { static: true }) formTarefa: NgForm;
+
+No comando abaixo o + na frente do this converte o id para numérico
+let id = +this.route.snapshot.params['id'];
+---------------------------------------------------------------------------------------------------------------------------------------
+13/04/2023
+Continuando a Lição 68
+Inibe que a página seja atualizada:     $event.preventDefault();
+
+Continuando a Lição 70
+Criar uma diretiva para deixar a tarefa taxada 
+ng g directive tarefas/shared/tarefa-concluida
+
+Diretiva gera um atributo HTML
+
+lição 73 - Novo projeto jogo da velha
+Executando o jogo da pasta final -
+entrar na pasta final\jogo da velha
+npm install
+ng serve
+
+Criando pasta para desenvolvimento:
+
+ng new jogo-da-velha
+
+....
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+
+
+
+cd jogo-da-velha
+ng serve
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+
+
+ng g module jogo-da-velha
+
+ng g component jogo-da-velha
+
+---------------------------------------------------------------------------------------------------------------------------------------
+14/04/2023
+lição 79 - Criando o Serviço jogo da velha
+
+ng g service  jogo-da-velha/shared/jogo-da-velha
+
+---------------------------------------------------------------------------------------------------------------------------------------
+19/04/2023
+lição 86 - Tela Inicial
+
+---------------------------------------------------------------------------------------------------------------------------------------
+24/04/2023
+
+lição 90 - Conversor de Moedas
+Executando o conversor de moedas final -
+entrar na pasta final\conversor de moedas
+npm install
+ng serve
+
+
+Projeto Observe - Programação reativa - Assincrona
+
+
+
+Criando pasta para desenvolvimento:
+
+ng new conversor-de-moedas
+cd conversor-de-moedas
+ng serve
+
+....
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+
+---------------------------------------------------------------------------------------------------------------------------------------
+25/04/2023
+
+lição 95 - Conversor de Moedas
+
+na pasta converdor-de-moedas
+
+npm install --save bootstrap@3
+npm install --save jquery
+
+
+Conforme mencionado anteriormente, caso você esteja usando o Angular 13, a importação do arquivo CSS do Bootstrap e jQuery deverão ser adicionados com a seguinte estrutura ao arquivo "angular.json":
+
+...
+"styles": [
+    "src/styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+"scripts": [
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/bootstrap/dist/js/bootstrap.min.js"
+],
+...
+
+ng g module conversor
+
+---------------------------------------------------------------------------------------------------------------------------------------
+27/04/2023
+
+lição 100 - Nota para acesso a API de Moedas e código HPPT
+* Essa chave tem uma limitação que somente permite converter moeda de Euros (EUR) para outras moedas, então ao executar a aplicação, tenha certeza de selecionar no campo "De" sempre a moeda EUR, pois as demais não funcionarão por limitação da conta gratuita que eles disponibilizam.
+
+** Caso você deseje utilizar essa API em outros projetos, peço que crie a sua própria chave de autenticação no website citado acima, pois essa também possui uma limitação de 1000 requisições mensais, que deverá ser compartilha somente aqui pelos alunos.
+
+*** Caso a chave que demonstro nos vídeos não funcione por limites de utilização, tente utilizar a seguinte que criei com outro email: 0138904fb6412bdba3aafede67e6c015
+
+A versão 13 do Angular também traz uma nova API para requisições HTTP, que é a HttpClient (introduzida no Angular 4), que veio para substituir a antiga Http.
+
+A seguir segue o código completo do serviço atualizado para a versão 12 do Angular, assim como para a nova API do fixer.io.
+
+Você pode acompanhar normalmente as duas próximas aulas sobre a criação do serviço, substituindo o código antigo pelo novo que segue abaixo:
+
+import { Injectable } from '@angular/core';
+// Importamos o HttpClient ao invés do Http para o Angular 7
+//import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { 
+ Conversao,
+ ConversaoResponse 
+} from '../models';
+@Injectable()
+export class ConversorService {
+  // Nova url do fixer.io, que adiciona o parâmetro access_key, que é a chave de autenticação 
+  //private readonly BASE_URL = "http://api.fixer.io/latest";
+  private readonly BASE_URL = "http://data.fixer.io/api/latest?access_key=eba7130a5b2d720ce43eb5fcddd47cc3";
+  constructor(private http: HttpClient) {}
+  /**
+   * Realiza a chamada para a API de conversão de moedas.
+   *
+   * @param Conversao conversao
+   * @return Observable<ConversaoResponse>
+   */
+  converter(conversao: Conversao): Observable<any> {
+  // Na linha abaixo altere a '?' por '&'
+  let params = `&base=${conversao.moedaDe}&symbols=${conversao.moedaPara}`;
+  return this.http
+      .get(this.BASE_URL + params);
+      // No Angular 6 as duas próximas linha não são mais necessárias
+      //.map(response => response.json() as ConversaoResponse)
+      //.catch(error => Observable.throw(error));
+  }
+  /**
+   * Retorna a cotação para dado uma response.
+   *
+   * @param ConversaoResponse conversaoResponse
+   * @param Conversao conversao
+   * @return number
+   */
+  cotacaoPara(conversaoResponse: ConversaoResponse, 
+ conversao: Conversao): number {
+  if (conversaoResponse === undefined) {
+  return 0;
+  }
+  return conversaoResponse.rates[conversao.moedaPara];
+  }
+  /**
+   * Retorna a cotação de dado uma response.
+   *
+   * @param ConversaoResponse conversaoResponse
+   * @param Conversao conversao
+   * @return string
+   */
+  cotacaoDe(conversaoResponse: ConversaoResponse, 
+ conversao: Conversao): string {
+  if (conversaoResponse === undefined) {
+  return '0';
+  }
+  return (1 / conversaoResponse.rates[conversao.moedaPara])
+  .toFixed(4);
+  }
+  /**
+   * Retorna a data da cotação dado uma response.
+   *
+   * @param ConversaoResponse conversaoResponse
+   * @return string
+   */
+  dataCotacao(conversaoResponse: ConversaoResponse): string {
+    if (conversaoResponse === undefined) {
+      return '';
+    }
+    return conversaoResponse.date;
+  }
+}
+O HttpClient citado acima pertence a outro módulo no Angular 12, que deverá ser modificado também no arquivo 'app.module.ts', conforme código a seguir:
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+// Importe o módulo HttpClientModule ao invés de HttpModule
+//import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { ConversorModule } from './conversor';
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    // Modifique aqui a importação do módulo também
+    //HttpModule,
+    HttpClientModule,
+    ConversorModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+Com isso você terá o serviço atualizado e funcionando.
+
+
+ng g component conversor/conversor
+
+
+lição 102 - Criando o serviço de gerenciamento de moedas
+
+ng g service conversor/services/moeda
+
+---------------------------------------------------------------------------------------------------------------------------------------
+28/04/2023
+
+lição 104 - Criando serviço de Conversor de Moedas
+
+---------------------------------------------------------------------------------------------------------------------------------------
+01/05/2023
+
+lição 107 - Nota sobre o ViewChild do vídeo a seguir
+No Angular atual devido a algumas alterações no processo de compilação do mesmo, foi adicionado um segundo parâmetro ao elemento @ViewChild que utilizaremos a seguir.
+
+Portanto se você estiver acompanhando o curso com o Angular em sua última versão, no vídeo a seguir quando implementar a seguinte linha de código:
+
+@ViewChild("conversaoForm") conversaoForm: NgForm;
+
+Tenha certeza de incluir o novo atributo, ficando da seguinte forma:
+
+@ViewChild("conversaoForm", { static: true }) conversaoForm: NgForm;
+
+** Importante:
+
+no código do vídeo a seguir criaremos 4 atributos de classe como sendo private. Na versão atual do Angular a palavra chave private deverá ser removida da classe para que os atributos funcionem corretamente, portanto onde você ver o código:
+
+private moedas: Moeda[];
+private conversao: Conversao;
+private possuiErro: boolean;
+private conversaoResponse: ConversaoResponse;
+Remova o acesso private, ficando da seguinte forma:
+
+moedas: Moeda[];
+conversao: Conversao;
+possuiErro: boolean;
+conversaoResponse: ConversaoResponse;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+02/05/2023
+
+lição 109 - Criando diretiva para validação de números
+
+ng g directive conversor/directives/numero
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+05/05/2023
+lição 112 - Implementando a ação de conversão de moedas
+
+conversor.component.ts -> {{ conversaoResponse | json }} --> Mostra o resultado na tela o "| json" indica formado JSon
+
+conversor.service.ts --> 
+      if (this.conversaoForm.form.valid){
+        //alert('Convertendo: ' + JSON.stringify(this.conversao))
+        this.conversorService
+          .converter(this.conversao)
+          .subscribe(  // o tipo de responsta pode ser response ou error. "=>" só indique que vai retornar o que está depois
+              response => this.conversaoResponse = response, 
+              error => this.possuiErro = true
+          ); 
+Tive que alterar o código acima
+
+lição 113 - Crianto componente modal de conversão de moedas
+
+ng g component conversor/modal-cotacao
+
+
+lição 115 - Implementando o componente modal de conversão de moedas
+modal-cotacao.component.ts 
+   @Input() <--- permite receber dados externos passado por outros componentes
+   @Input() id: string; 
+   @Input() conversaoResponse: ConversaoResponse;
+   @Input() conversao: Conversao = new Conversao();
+   @Output() onConfirm: EventEmitter<any> = new EventEmitter<any>;
+
+  no construtor injeta a classe ConversorService 	
+  constructor(private conversorService: ConversorSerce
+
+
+conversor.component.html
+os atributos são os mesmos modal-cotacao.component.ts 
+
+   <modal-cotacao
+    [id]="'modalCotacao'"
+    [conversaoResponse]="conversaoResponse"
+    [conversao]="conversao"
+    (onConfirm)="init()">  <-- quando clicar em nova consulta aciona esse init()
+   </modal-cotacao>
+</div>
+
+---------------------------------------------------------------------------------------------------------------------------------------
+09/05/2023
+
+lição 116 - Criando um filtro pipe de formatação de data dd/mm/aaaa
+
+
+-- Formatação 
+ng g pipe conversor/pipes/data-br
+
+ng test - para executar testes
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+10/05/2023
+
+lição 119 - Projeto Dashboard
+
+
+ng new dashboard
+
+....
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+	**** Se tiver problemas com os gráficos, deve instalar nova versão do Json
+	npm install zone.js@0.8.5 --save 
+
+cd dashboard
+ng serve
+
+ng g module dashboard 
+
+ng g component dashboard 
+---------------------------------------------------------------------------------------------------------------------------------------
+12/05/2023
+
+lição 124 - Criando o Serviço de dados do Dashboard
+
+ng g service dashboard/dados
+
+	incluir o export no index.ts
+	importar no dashboard.module.ts
+	Disponibilizar os dados para aplicação.
+	
+	  providers: [
+		DadosService
+		]
+---------------------------------------------------------------------------------------------------------------------------------------
+15/05/2023
+
+lição 125 - Nota Observable
+
+Na aula a seguir fazemos o uso da classe Observable.
+Sua importação mudou na última versão do Angular, portanto ao importar esta classe use a seguinte instrução de importação:
+import { Observable } from 'rxjs'; 
+
+Importando a Api de Gráficos no projeto: https://developers.google.com/chart
+
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+16/05/2023
+
+lição 132 - Projeto Final - Aplicação Modular
+muliplos modulos 
+Endereços multiplos
+
+final/projeto-final 
+npm install
+ng serve 
+
+
+lição 133 - Criando Projeto Final - Aplicação Modular
+
+	ng new projeto-final
+	cd projeto-final
+	ng serve
+	....
+	? Would you like to add Angular routing? No
+	? Which stylesheet format would you like to use? CSS
+
+	? Would you like to share pseudonymous usage data about this project with the Angular Team
+	at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+	details and how to change this setting, see https://angular.io/analytics. No
+
+
+lição 136 - Instalando Bootstrap e JQuery
+npm install --save bootstrap@3
+npm install --save jquery
+
+---------------------------------------------------------------------------------------------------------------------------------------
+17/05/2023
+
+lição 138 - Configurando Rotas de Navegação
+criação do arquivo em app - app-routing.module.ts 
+forRoot - Entrada Principal -  SIngleton
+Depois tem que importar em app.module.ts
+
+lição 140 - Copiando o projeto existente do Dashboard para o Projeto final
+
+Copiar a pasta dashboard
+De --> C:\Robson\Cursos\Angular\projetos\dashboard\src\app
+Para-> C:\Robson\Cursos\Angular\projetos\projeto-final\src\app
+
+
+Depois tem que importar em app.module.ts
+
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    DashboardModule,
+    AppRoutingModule <-- Sempre tem que vir por ultimo, a ordem importa
+  ],
+  providers: []
+  
+---------------------------------------------------------------------------------------------------------------------------------------
+18/05/2023
+
+lição 146 - Copiando projeto Jogo da Velha
+
+Conclusão do Curso  
+---------------------------------------------------------------------------------------------------------------------------------------
+SEQUENCIA
+
+0 - Instalando 
+	- NodeJS 
+		- É uma plataforma Javascript para construção de aplicações rápidas e escaláveis
+		- Executa Javascript do lado do servidor
+		- Utilizado no curso para criação e execução dos códigos de testes
+		- NPM é o gerenciador de pacotes do NodeJS
+		- É instalado junto com o NodeJs
+		- Juntos eles gerenciam uma aplicação Javascript no servidor
+		
+		- Página oficial : https://nodejs.org
+			- Baixar a instalação para windows.
+			
+	- Angular 
+		- no terminal do Windows.
+		npm intall -g @angular/cli   --> tag -g significa que é global que deve funcionar em todo nosso computador
+		ng version
+		
+	- WebPack - Transforma nosso código em liguagem que o Browser interprete.
+
+	- Estrutura do Projeto Angular
+		- angular-cli.json ou angular.json - Arquivo de configuração do projeto - Meta dados do projeto. Exemplo - Inclusão de Styles ou CSS
+		- .editorconfig - Configurando o editor
+		- .gitignore - Na utilização do GIT possui configurações
+		- karma.config.js - Utilizado para configuração dos testes unitários
+		- package.js - Possui todas as dependencias
+		- protractor.conf.js - Utilizado para configurar testes de integração do Angular
+		- readme.md - Marcação de meta informação
+		- tsconfig.ts - informações sobre a compilação
+		- tslint.json - parametros para validação do código - mantem a qualidade do código.
+		pasta - node-modules - é controlada pelas instações.
+		pasta - scr - possui todo o código fonte da aplicação
+			- index.html - é o arquivo principal que vai exibir - 	
+			- main.ts - faz a inicialização do angular quando começa
+			- polyfills.ts - utilizado para acessar bibliotecas externas - utilizar quando for utilizada em vários pontos do projeto
+			- styles.css - arquivo de estilos para toda a aplicação
+		pasta - assets - Onde ficam arquivos estaticos - imagens, css, etc.
+		pasta - environments - para controle de ambientes
+			- environment.prod.ts - configurações específicas para produção
+			- environment.ts
+		pasta - app - onde ficam todos os códigos
+			- vamos trabalhar com módulos - Sempre os módulos são com conjunto de 5 aquivos
+			- Os arquivos que seguem são do módulo principal
+			- app.component.css - aplica algum css especifico.
+			- app.component.html - 
+			- app.component.spec.ts - arquivo de testes do componente.
+			- app.component.ts - possui o código selector: 'app-root' que é a tag que apresenta no src/index.hml - <app-root></app-root>
+			- app.module.ts - possui a notação @NgModule o que faz o angular entender que é um modulo. 
+				Esse é o modulo principal que vai executar quando a página for carregada.
+			
+- Observe - Observable
+		- O Observable permite fazer uma requisição assincrona, sem que o chamdor fique parado aguardando o retorno.
+		- quando recebe o retorno envia para o chamador.
+		- usado pela biblioteca externa rxjs
+			
+
+1 - Criando Projeto  
+	ng new dashboard
+	cd dashboard
+	ng serve
+
+		....
+		? Would you like to add Angular routing? No
+		? Which stylesheet format would you like to use? CSS
+
+		? Would you like to share pseudonymous usage data about this project with the Angular Team
+		at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+		details and how to change this setting, see https://angular.io/analytics. No
+
+
+2 - Criando Modulo - O modulo fica dentro da aplicação
+	ng g module dashboard	
+	criar o index.ts
+	importar no app.module.ts
+	importar no app.component.ispec.ts
+	-> no conversor.module.ts
+		como está utilizando rotas deve importar o conversor.component
+		incluir no exports: [ ConversorComponent] --> para ser utilizado no módulo da aplicação
+
+3 - Model - Onde ficam as classes para receber os dados da API.- Depois de criar o Modulo converdor
+	Dentro na pasta do projeto/conversor-de-moedas/src/app/conversor/Models
+	-Criar um moeda.model.ts
+	-Criar index.ts para exportar
+	-Incluir no conversor/index.ts o export
+	
+4 - Criando componente - O componente ou componentes ficam dentre do modulo. Tem uma única função no modulo.
+	ng g component dashboard 
+	incluir o export no index.ts
+	no dashboard.module.ts
+		- confirmar o import do DashboardComponent
+		- incluir um exports: [DashboardComponent] - para utilizar no modulo de rotas
+	no dashboard.component.htm 
+		- Onde fica o código html para ser exporto 
+	confirmar no dashboard.component.ts 
+		- selector: 'app-dashboard' --> essa é a tag para o html
+	no app.component.html -> 
+		- incluir a tag <app-dashboard></app-dashboard>
+		- incluir a tag <app-convesor></app-conversor>
+		
+5 - Criar Serviço - Onde ficam as funções 
+	ng g service dashboard/dados
+	incluir o export no index.ts
+	importar no dashboard.module.ts
+	
+	  providers: [
+		DadosService
+		]
+	importar no dashboard.component.ispec.ts
+	- Devemos fazer o import dos Models - Classes
+	
+6 - Criar diretiva  - Formata as informações apresentadas no html
+	Criar uma diretiva para deixar a tarefa taxada 
+	ng g directive conversor/directives/numero
+	ng g directive tarefas/shared/tarefa-concluida
+	- no conversor.componente.html - incluir no nome da diretiva como sendo um parametro na tag <input type="text"... placeholder="0" numero.. required>
+ 	
+	
+
+---------------------------------------------------------------------------------------------------------------------------------------
